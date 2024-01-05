@@ -15,7 +15,7 @@ public class Room {
         }
         a[random-1] = new Dragon();
         names += "and " + a[random-1].getName();
-        if (random>1){
+        if (random>2){
             System.out.println(random-1 + " dragons appear behind you.");
             System.out.println("Their names are " + names + ".");
         } else {
