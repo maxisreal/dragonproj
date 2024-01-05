@@ -1,18 +1,44 @@
 public class Room {
+    private static Dragon[] a;
     private Room(){}
     public static void spawn(){
         int random = (int)(Math.random()*10+1);
-        Dragon[] a = new Dragon[random];
+        a = new Dragon[random];
         String names = "";
-        for (int i = 0; i<random-1; i++){
+        a[0] = new Dragon();
+        for (int i = 1; i<random-1; i++){
             a[i] = new Dragon();
+            if (a[i].getName().equals(a[i-1].getName())){
+                a[i] = new Dragon();
+            }
             names += a[i].getName() + ", ";
         }
         a[random-1] = new Dragon();
         names += "and " + a[random-1].getName();
-
-        System.out.println(random + " dragons appear behind you.");
-        System.out.println("Their names are " + names + ".");
+        if (random>1){
+            System.out.println(random-1 + " dragons appear behind you.");
+            System.out.println("Their names are " + names + ".");
+        } else {
+            System.out.println("A dragon appears behind you.");
+            System.out.println("Its name is " + names + ".");
+        }
+    }
+    public static boolean attack(String dragon, int dmg){
+        for (int i = 0; i<a.length; i++){
+            if (a[i].getName().equals(dragon)){
+                a[i].attack(dmg);
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean roomClear(){
+        for (int i = 0; i<a.length; i++){
+            if (!a[i].isDead()){
+                return false;
+            }
+        }
+        return true;
     }
 
 }

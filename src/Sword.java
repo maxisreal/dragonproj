@@ -5,4 +5,8 @@ public class Sword {
         atkdmg = 10;
         dodge = 5;
     }
+    public int getatk(){
+        return atkdmg;
+    }
+
 }
