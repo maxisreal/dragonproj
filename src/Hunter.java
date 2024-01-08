@@ -17,11 +17,7 @@ public class Hunter {
             System.out.println("____________________________________");
             System.out.println("(G)et going on your suicidal quest." + Colors.RESET);
             System.out.println(Colors.CYAN + "(T)urn back and reconsider your life options." + Colors.RESET);
-            System.out.print("Choose: ");
-            String choice = SCANNER.nextLine().toLowerCase();
-            if (choice.length()!=0){
-                choice = choice.substring(0, 1);
-            }
+            String choice = choose();
             if (choice.equals("t")){
                 System.out.println("Good on ye.");
                 return false;
@@ -45,25 +41,24 @@ public class Hunter {
         while (!p1.isDead) {
             Room.spawn();
             while (!Room.roomClear()) {
-                System.out.println("____________________________________");
+                System.out.println(Colors.GREEN + "____________________________________");
                 System.out.println(Colors.RED + "(S)tab the dragons.");
                 System.out.println(Colors.GREEN + "(L)ook around.");
                 System.out.println(Colors.PURPLE + "(C)heck out the dragons.");
-                System.out.print(Colors.RESET + "Choose: ");
-                String choice = SCANNER.nextLine().toLowerCase();
-                if (choice.length() != 0) {
-                    choice = choice.substring(0, 1);
-                }
-                if (choice.equals("S")) {
+                String choice = choose();
+                if (choice.equals("s")) {
                     System.out.print("Which dragon? ");
-                    if (Room.attack(SCANNER.nextLine().toLowerCase(), sword.getatk())) {
-                        System.out.println("yes");
-                    } else {
-                        System.out.println("no");
-                    }
-
+                    Room.attack(SCANNER.nextLine().toLowerCase(), sword.getatk());
                 }
             }
         }
+    }
+    private String choose(){
+        System.out.print(Colors.RESET + "Choose: ");
+        String choice = SCANNER.nextLine().toLowerCase();
+        if (choice.length() != 0) {
+            choice = choice.substring(0, 1);
+        }
+        return choice;
     }
 }

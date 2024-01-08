@@ -23,14 +23,13 @@ public class Room {
             System.out.println("Its name is " + names + ".");
         }
     }
-    public static boolean attack(String dragon, int dmg){
+    public static void attack(String dragon, int dmg){
+        dragon = dragon.toLowerCase();
         for (int i = 0; i<a.length; i++){
-            if (a[i].getName().equals(dragon)){
+            if (a[i].getName().toLowerCase().equals(dragon)){
                 a[i].attack(dmg);
-                return true;
             }
         }
-        return false;
     }
     public static boolean roomClear(){
         for (int i = 0; i<a.length; i++){

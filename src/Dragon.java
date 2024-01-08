@@ -3,7 +3,7 @@ public class Dragon {
     private boolean isDead;
     private int power;
     private String name;
-    private final String[] names = {"Claudia", "Clyde", "Stevie", "Steve", "Trelok", "Sayga", "Steven", "Bob", "Tira", "Joshua", "Chester", "Josh"};
+    private final String[] names = {"Claudia", "Clyde", "Stevie", "Steve", "Trelok", "Sayga", "Steven", "Bob", "Tira", "Joshua", "Chester", "Josh", "Eric"};
     public Dragon(){
         hp = 100;
         power = (int)(Math.random()*3+1);
