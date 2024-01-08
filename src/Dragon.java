@@ -12,7 +12,7 @@ public class Dragon {
     }
     public int attack(int dmg){
         hp -= dmg;
-        System.out.println("You hit " + name + " for " + dmg + " health.");
+        System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
         return hp;
     }
     public String getName(){
