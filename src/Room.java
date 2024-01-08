@@ -30,6 +30,7 @@ public class Room {
                 a[i].attack(dmg);
             }
         }
+
     }
     public static boolean roomClear(){
         for (int i = 0; i<a.length; i++){

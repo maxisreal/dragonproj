@@ -8,5 +8,6 @@ public class Sword {
     public int getatk(){
         return atkdmg;
     }
+    public int getdodge(){return dodge;}
 
 }
