@@ -10,11 +10,16 @@ public class Dragon {
         isDead = false;
         name = names[(int)(Math.random()*names.length)];
     }
-    public int attack(int dmg){
+    public int recieve(int dmg){
         hp -= dmg;
         System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
         return hp;
     }
+    public int attack(){
+        System.out.println(name + " swipes back at you.");
+        return power;
+    }
+
     public String getName(){
         return name;
     }

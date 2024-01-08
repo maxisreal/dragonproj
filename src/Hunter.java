@@ -48,7 +48,7 @@ public class Hunter {
                 String choice = choose();
                 if (choice.equals("s")) {
                     System.out.print("Which dragon? ");
-                    Room.attack(SCANNER.nextLine().toLowerCase(), sword.getatk());
+                    p1.takeDamage(Room.attack(SCANNER.nextLine().toLowerCase(), sword.getatk()), sword.getdodge());
                 }
             }
         }
