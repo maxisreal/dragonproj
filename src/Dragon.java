@@ -22,7 +22,7 @@ public class Dragon {
             System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
             return hp;
         } else {
-            System.out.println("You beat the corpse of " + name + "pointlessly.");
+            System.out.println("You beat the corpse of " + name + " pointlessly.");
             return hp;
         }
     }

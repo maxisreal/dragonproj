@@ -8,7 +8,7 @@ public class Player {
     }
     public void takeDamage(int dmg, int dodge) {
         if (dmg == -1) {
-            System.out.println();
+            System.out.println("You might want to move on.");
         } else {
             int random = (int) (Math.random() * 100 + 1);
             if (random <= dodge) {
