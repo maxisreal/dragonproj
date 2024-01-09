@@ -2,7 +2,7 @@ public class Room {
     private static Dragon[] a;
     private Room(){}
     public static void spawn(){
-        int random = 1;//(int)(Math.random()*10+1);
+        int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
         String names = "";
         a[0] = new Dragon();

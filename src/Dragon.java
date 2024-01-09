@@ -32,7 +32,7 @@ public class Dragon {
             return dmg;
         } else {
             System.out.println(name + " cannot swipe back at you because it is dead.");
-            return 0;
+            return -1;
         }
     }
 
@@ -50,7 +50,7 @@ public class Dragon {
     public void aftermath(){
         double random = Math.random()+1;
         if (random>0.8){
-            
+
         }
     }
 }
