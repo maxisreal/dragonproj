@@ -71,5 +71,8 @@ public class Room {
     public static int dragonamt(){
         return a.length;
     }
+    public static Dragon getThedragon(){
+        return thedragon;
+    }
 
 }
