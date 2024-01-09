@@ -6,13 +6,17 @@ public class Player {
         hp = 100;
         isDead = false;
     }
-    public void takeDamage(int dmg, int dodge){
-        int random = (int)(Math.random()*100+1);
-        if (random == dodge){
-            System.out.println("You barely dodge " + dmg + " damage.");
+    public void takeDamage(int dmg, int dodge) {
+        if (dmg == -1) {
+            System.out.println();
         } else {
-            System.out.println("You get whacked for " + dmg + " damage.");
-            hp -= dmg;
+            int random = (int) (Math.random() * 100 + 1);
+            if (random <= dodge) {
+                System.out.println(Colors.CYAN + "You barely dodge " + dmg + " damage." + Colors.RESET);
+            } else {
+                System.out.println(Colors.RED + "You get whacked for " + dmg + " damage." + Colors.RESET);
+                hp -= dmg;
+            }
         }
     }
 

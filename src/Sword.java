@@ -3,7 +3,7 @@ public class Sword {
     private int dodge;
     public Sword(){
         atkdmg = 10;
-        dodge = 5;
+        dodge = 20;
     }
     public int getatk(){
         return atkdmg;
