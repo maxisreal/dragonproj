@@ -2,10 +2,10 @@ public class Room {
     private static Dragon[] a;
     private Room(){}
     private static Dragon thedragon;
+    private static String names;
     public static void spawn(){
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
-        String names = "";
         a[0] = new Dragon();
         thedragon = a[0];
         for (int i = 1; i<random-1; i++){
@@ -54,6 +54,9 @@ public class Room {
     }
     public static String dragonInfo(){
         return thedragon.dragonInfo();
+    }
+    public static String getnames(){
+        return names;
     }
 
     public static int attack(int dmg){

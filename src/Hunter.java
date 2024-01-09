@@ -53,6 +53,7 @@ public class Hunter {
                         while (!Room.getThedragon().isDead()){
                             onedragon();
                         }
+                        System.out.println(Room.getnames() + " are still there.");
                     }
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
@@ -60,6 +61,7 @@ public class Hunter {
                         while (!Room.getThedragon().isDead()){
                             onedragon();
                         }
+                        System.out.println(Room.getnames() + " are still there.");
                     }
                 } else {
                     onedragon();
