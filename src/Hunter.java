@@ -49,7 +49,7 @@ public class Hunter {
                     String choice = choose();
                     if (choice.equals("s")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
-                        p1.takeDamage(Room.attack(SCANNER.nextLine().toLowerCase(), sword.getatk()), sword.getdodge());
+                        p1.takeDamage(Room.attack(SCANNER.nextLine(), sword.getatk()), sword.getdodge());
                     }
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);

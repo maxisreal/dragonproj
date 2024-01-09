@@ -1,11 +1,13 @@
 public class Room {
     private static Dragon[] a;
     private Room(){}
+    private static Dragon thedragon;
     public static void spawn(){
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
         String names = "";
         a[0] = new Dragon();
+        dragon = a[0];
         for (int i = 1; i<random-1; i++){
             a[i] = new Dragon();
             if (a[i].getName().equals(a[i-1].getName())){
@@ -25,7 +27,7 @@ public class Room {
         }
     }
     public static int attack(String dragon, int dmg){
-        dragon = dragon.toLowerCase();
+        dragon = creature.toLowerCase();
         for (int i = 0; i<a.length; i++){
             if (a[i].isDead()){
                 a[i].aftermath();
@@ -34,6 +36,7 @@ public class Room {
                 return -1;
             }
             if (a[i].getName().toLowerCase().equals(dragon)){
+                thedragon = a[i];
                 a[i].recieve(dmg);
                 return a[i].attack();
             }
@@ -50,12 +53,12 @@ public class Room {
         return "This dragon isn't here right now. I'll tell you later.";
     }
     public static String dragonInfo(){
-        return a[0].dragonInfo();
+        return thedragon.dragonInfo();
     }
 
     public static int attack(int dmg){
-        a[0].recieve(dmg);
-        return a[0].attack();
+        thedragon.recieve(dmg);
+        return thedragon.attack();
     }
     public static boolean roomClear(){
         for (int i = 0; i<a.length; i++){
