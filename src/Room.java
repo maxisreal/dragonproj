@@ -7,7 +7,7 @@ public class Room {
         a = new Dragon[random];
         String names = "";
         a[0] = new Dragon();
-        dragon = a[0];
+        thedragon = a[0];
         for (int i = 1; i<random-1; i++){
             a[i] = new Dragon();
             if (a[i].getName().equals(a[i-1].getName())){
