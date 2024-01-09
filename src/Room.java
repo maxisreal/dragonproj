@@ -6,11 +6,12 @@ public class Room {
     public static void spawn(){
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
+        names = "";
         a[0] = new Dragon();
         thedragon = a[0];
         for (int i = 1; i<random-1; i++){
             a[i] = new Dragon();
-            if (a[i].getName().equals(a[i-1].getName())){
+            if (a[i].getName().equals(a[i-1].getName())||a[i]==null){
                 a[i] = new Dragon();
             }
             names += a[i].getName() + ", ";
