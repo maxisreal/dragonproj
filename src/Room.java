@@ -27,7 +27,7 @@ public class Room {
         }
     }
     public static int attack(String dragon, int dmg){
-        dragon = creature.toLowerCase();
+        dragon = dragon.toLowerCase();
         for (int i = 0; i<a.length; i++){
             if (a[i].isDead()){
                 a[i].aftermath();
