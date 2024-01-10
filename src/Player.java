@@ -3,7 +3,8 @@ public class Player {
     public static int topscore;
     public boolean isDead;
     public Player(){
-        hp = 1;
+        hp = 100;
+        //hp be 100
         isDead = false;
     }
     public void takeDamage(int dmg, int dodge) {
@@ -14,12 +15,14 @@ public class Player {
             if (random <= dodge) {
                 System.out.println(Colors.CYAN + "You barely dodge " + dmg + " damage." + Colors.RESET);
             } else {
-                System.out.println(Colors.RED + "You get whacked for " + dmg + " damage." + Colors.RESET);
+                System.out.println(Colors.RED + "You get whacked for " + dmg + " damage.");
+                System.out.println("HP: " + hp + Colors.RESET);
                 hp -= dmg;
-                System.out.println("Hp: " + hp);
+
                 if (hp<0){
                     hp = 0;
                     isDead = true;
+                    System.out.println("dead");
                 }
             }
         }

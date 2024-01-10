@@ -50,7 +50,7 @@ public class Hunter {
                     if (choice.equals("s")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         p1.takeDamage(Room.attack(SCANNER.nextLine(), sword.getatk()), sword.getdodge());
-                        while (!Room.getThedragon().isDead()||!p1.isDead){
+                        while (!Room.getThedragon().isDead()) {
                             onedragon();
                         }
                         System.out.println(Room.getnames() + " are still there.");
@@ -58,7 +58,7 @@ public class Hunter {
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
-                        while (!Room.getThedragon().isDead()||!p1.isDead){
+                        while (!Room.getThedragon().isDead()){
                             onedragon();
                         }
                         System.out.println(Room.getnames() + " are still there.");
@@ -78,10 +78,10 @@ public class Hunter {
         System.out.println(Colors.BLUE+ "(L)ook around.");
         System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
         String choice = choose();
-        if (choice.equals("s")&&!p1.isDead) {
+        if (choice.equals("s")) {
             p1.takeDamage(Room.attack(sword.getatk()), sword.getdodge());
         }
-        if (choice.equals("c")&&!p1.isDead) {
+        if (choice.equals("c")) {
             System.out.println(Room.dragonInfo());
         }
     }

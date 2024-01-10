@@ -4,7 +4,7 @@ public class Room {
     private static Dragon thedragon;
     private static String names;
     public static void spawn(){
-        int random = (int)(Math.random()*5+1);
+        int random = 2;//(int)(Math.random()*5+1);
         a = new Dragon[random];
         names = "";
         a[0] = new Dragon();
@@ -64,12 +64,13 @@ public class Room {
         return thedragon.attack();
     }
     public static boolean roomClear(){
-        for (int i = 0; i<a.length; i++){
-            if (!a[i].isDead()){
-                return false;
+        int b = 0;
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+                b++;
             }
         }
-        return true;
+        return b == a.length;
     }
     public static int dragonamt(){
         return a.length;
