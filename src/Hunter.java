@@ -44,13 +44,13 @@ public class Hunter {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
                     System.out.println(Colors.RED + "(S)tab the dragons.");
-                    System.out.println(Colors.GREEN + "(L)ook around.");
+                    System.out.println(Colors.BLUE + "(L)ook around.");
                     System.out.println(Colors.PURPLE + "(C)heck out the dragons.");
                     String choice = choose();
                     if (choice.equals("s")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         p1.takeDamage(Room.attack(SCANNER.nextLine(), sword.getatk()), sword.getdodge());
-                        while (!Room.getThedragon().isDead()){
+                        while (!Room.getThedragon().isDead()||!p1.isDead){
                             onedragon();
                         }
                         System.out.println(Room.getnames() + " are still there.");
@@ -58,7 +58,7 @@ public class Hunter {
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
-                        while (!Room.getThedragon().isDead()){
+                        while (!Room.getThedragon().isDead()||!p1.isDead){
                             onedragon();
                         }
                         System.out.println(Room.getnames() + " are still there.");
@@ -68,17 +68,20 @@ public class Hunter {
                 }
             }
         }
+        System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
+        System.out.println(Colors.RED + "You're dead!");
+        System.out.println(Colors.GREEN + "The old man was right, you do have a death wish.");
     }
     private void onedragon(){
         System.out.println(Colors.GREEN + "____________________________________");
         System.out.println(Colors.RED + "(S)tab the dragon.");
-        System.out.println(Colors.GREEN + "(L)ook around.");
+        System.out.println(Colors.BLUE+ "(L)ook around.");
         System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
         String choice = choose();
-        if (choice.equals("s")) {
+        if (choice.equals("s")&&!p1.isDead) {
             p1.takeDamage(Room.attack(sword.getatk()), sword.getdodge());
         }
-        if (choice.equals("c")) {
+        if (choice.equals("c")&&!p1.isDead) {
             System.out.println(Room.dragonInfo());
         }
     }

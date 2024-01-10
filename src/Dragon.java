@@ -18,8 +18,10 @@ public class Dragon {
             if (hp<=0){
                 hp = 0;
                 isDead = true;
+                System.out.println("You beat the corpse of " + name + " pointlessly.");
+            } else {
+                System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
             }
-            System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
             return hp;
         } else {
             System.out.println("You beat the corpse of " + name + " pointlessly.");
@@ -44,12 +46,12 @@ public class Dragon {
         if (!isDead){
             return Colors.GREEN + name + " is rather large.\n" + name + "'s hobbies include:\n-Milking\n-Juicing\n-Burning\n-Reading\n-Burning again\n" + name + " has " + hp + " health." + Colors.RESET;
         } else {
-            return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n" + name + " is dead." + Colors.RESET;
+            return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n" + name + " has the vitality of a corpse." + Colors.RESET;
         }
     }
     public void aftermath(){
         double random = Math.random()+1;
-        if (random>0.8){
+        if (random<0.2){
 
         }
     }

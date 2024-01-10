@@ -32,8 +32,7 @@ public class Room {
         for (int i = 0; i<a.length; i++){
             if (a[i].isDead()){
                 a[i].aftermath();
-                System.out.println("the dragon has been slayed");
-                System.out.println("what a stupid nerd");
+                System.out.println("The dragon has been slayed.");
                 return -1;
             }
             if (a[i].getName().toLowerCase().equals(dragon)){
