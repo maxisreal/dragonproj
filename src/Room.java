@@ -4,7 +4,7 @@ public class Room {
     private static Dragon thedragon;
     private static String names;
     public static void spawn(){
-        int random = 2;//(int)(Math.random()*5+1);
+        int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
         names = "";
         a[0] = new Dragon();
