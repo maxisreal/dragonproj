@@ -94,6 +94,7 @@ public class Room {
                names = names.substring(0, names.indexOf(dragon.getName())) + names.substring(names.indexOf(dragon.getName())+dragon.getName().length()+1);
             }
         }
+        //todo: names removes any dead dragons from itself
     }
 
 }
