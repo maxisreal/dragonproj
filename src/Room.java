@@ -85,7 +85,7 @@ public class Room {
     public static void update(){
         for (Dragon dragon : a){
             if (dragon.isDead()){
-               names = names.substring(0, names.indexOf(dragon.getName())) + names.substring(names.indexOf(dragon.getName())+dragon.getName().length()+2);
+               names = names.substring(0, names.indexOf(dragon.getName())) + names.substring(names.indexOf(dragon.getName())+dragon.getName().length()+1);
             }
         }
     }
