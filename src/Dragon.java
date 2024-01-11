@@ -44,9 +44,9 @@ public class Dragon {
     public boolean isDead(){return isDead;}
     public String dragonInfo(){
         if (!isDead){
-            return Colors.GREEN + name + " is rather large.\n" + name + "'s hobbies include:\n-Milking\n-Juicing\n-Burning\n-Reading\n-Burning again\n" + name + " has " + hp + " health." + Colors.RESET;
+            return Colors.GREEN + name + " is rather large.\n" + name + "'s hobbies include:\n-Milking\n-Juicing\n-Burning\n-Reading\n-Burning again\n" + Colors.RED + name + " has " + hp + " health." + Colors.RESET;
         } else {
-            return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n" + name + " has the vitality of a corpse." + Colors.RESET;
+            return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n"+ Colors.RED + name + " has the vitality of a corpse." + Colors.RESET;
         }
     }
     public void aftermath(){

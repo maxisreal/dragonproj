@@ -53,6 +53,7 @@ public class Hunter {
                         while (!Room.getThedragon().isDead()) {
                             onedragon();
                         }
+                        Room.update();
                         System.out.println(Room.getnames() + " are still there.");
                     }
                     if (choice.equals("c")) {
@@ -61,6 +62,7 @@ public class Hunter {
                         while (!Room.getThedragon().isDead()){
                             onedragon();
                         }
+                        Room.update();
                         System.out.println(Room.getnames() + " are still there.");
                     }
                 } else {

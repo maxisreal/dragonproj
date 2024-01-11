@@ -9,17 +9,21 @@ public class Room {
         names = "";
         a[0] = new Dragon();
         thedragon = a[0];
-        for (int i = 1; i<random-1; i++){
+        for (int i = 1; i<random; i++){
             a[i] = new Dragon();
             if (a[i].getName().equals(a[i-1].getName())||a[i]==null){
-                a[i] = new Dragon();
+                a[i-1] = new Dragon();
             }
             names += a[i].getName() + ", ";
         }
-        a[random-1] = new Dragon();
+        System.out.print(Colors.GREEN);
         if (random>2){
             names += "and " + a[random-1].getName();
-            System.out.println(random-1 + " dragons appear behind you.");
+            System.out.println(random + " dragons appear behind you.");
+            System.out.println("Their names are " + names + ".");
+        } else if (random == 2){
+            names = a[0].getName() + " and " + a[1].getName();
+            System.out.println(random + " dragons appear behind you.");
             System.out.println("Their names are " + names + ".");
         } else {
             names += a[random-1].getName();
@@ -77,6 +81,13 @@ public class Room {
     }
     public static Dragon getThedragon(){
         return thedragon;
+    }
+    public static void update(){
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+               names = names.substring(0, names.indexOf(dragon.getName())) + names.substring(names.indexOf(dragon.getName())+dragon.getName().length()+2);
+            }
+        }
     }
 
 }
