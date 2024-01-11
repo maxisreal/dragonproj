@@ -11,11 +11,17 @@ public class Room {
         thedragon = a[0];
         for (int i = 1; i<random; i++){
             a[i] = new Dragon();
-            if (a[i].getName().equals(a[i-1].getName())||a[i]==null){
-                a[i-1] = new Dragon();
+            while (a[i].getName().equals(a[i-1].getName())){
+                a[i] = new Dragon();
             }
+            // this code makes them all have the same name
+            //todo: please implement a system where dragons with the same names all get hurt when you attack one
+            //while (!a[i].getName().equals(a[i-1].getName())){
+                //a[i] = new Dragon();
+            //}
             names += a[i].getName() + ", ";
         }
+
         System.out.print(Colors.GREEN);
         if (random>2){
             names += "and " + a[random-1].getName();
