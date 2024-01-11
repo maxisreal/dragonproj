@@ -77,7 +77,13 @@ public class Room {
         return b == a.length;
     }
     public static int dragonamt(){
-        return a.length;
+        int b = 0;
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+                b++;
+            }
+        }
+        return a.length - b;
     }
     public static Dragon getThedragon(){
         return thedragon;
