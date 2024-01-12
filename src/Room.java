@@ -111,6 +111,7 @@ public class Room {
             if (a[i].isDead()){
                names = names.substring(0, names.indexOf(a[i].getName()));
                names += names.substring(names.indexOf(a[i].getName()) + a[i].getName().length());
+               //todo: FIX THIS
             }
         }
         if (dragonamt()==1){
