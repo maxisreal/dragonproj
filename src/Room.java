@@ -53,6 +53,10 @@ public class Room {
         }
         return 0;
     }
+    public static int attack(int dmg){
+        thedragon.recieve(dmg);
+        return thedragon.attack();
+    }
     public static boolean findDragon(String dragon){
         for (Dragon drag : a){
             if (dragon.equalsIgnoreCase(drag.getName())){
@@ -75,11 +79,6 @@ public class Room {
     }
     public static String getnames(){
         return names;
-    }
-
-    public static int attack(int dmg){
-        thedragon.recieve(dmg);
-        return thedragon.attack();
     }
     public static boolean roomClear(){
         int b = 0;
