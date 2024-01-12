@@ -59,6 +59,7 @@ public class Room {
             return thedragon.attack();
         } else {
             thedragon.aftermath();
+            return -1;
         }
     }
     public static boolean findDragon(String dragon){

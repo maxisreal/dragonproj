@@ -18,7 +18,7 @@ public class Dragon {
             if (hp<=0){
                 hp = 0;
                 isDead = true;
-                System.out.println(Colors.GREEN + "You beat the corpse of " + name + " pointlessly.");
+                System.out.println(Colors.GREEN + "You deal a killing blow to " + name + ", killing it.");
             } else {
                 System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
             }
@@ -51,8 +51,15 @@ public class Dragon {
     }
     public void aftermath(){
         double random = Math.random()+1;
-        if (random<0.2){
-
+        System.out.print(Colors.GREEN);
+        if (random<0.25){
+            System.out.println("You get 50 gold");
+        } else if (random < 0.5){
+            System.out.println("You get a sword upgrade");
+        } else if (random < 0.75) {
+            System.out.println("You get nothing");
+        } else {
+            System.out.println("You get 20 hp back");
         }
     }
 }
