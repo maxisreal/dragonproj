@@ -107,10 +107,10 @@ public class Room {
         return thedragon;
     }
     public static void update(){
-        names = "";
         for (int i = 0; i<a.length; i++){
-            if (!a[i].isDead()){
-               names += a[i].getName() + ", ";
+            if (a[i].isDead()){
+               names = names.substring(0, names.indexOf(a[i].getName()));
+               names += names.substring(names.indexOf(a[i].getName()) + a[i].getName().length());
             }
         }
         if (dragonamt()==1){
