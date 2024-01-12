@@ -49,7 +49,12 @@ public class Hunter {
                     String choice = choose();
                     if (choice.equals("s")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
-                        p1.takeDamage(Room.attack(SCANNER.nextLine(), sword.getatk()), sword.getdodge());
+                        String p = SCANNER.nextLine();
+                        if (Room.getnames().contains(p)) {
+                            p1.takeDamage(Room.attack(p, sword.getatk()), sword.getdodge());
+                        } else {
+                            Room.attack(p, sword.getatk());
+                        }
                         while (!Room.getThedragon().isDead()) {
                             onedragon();
                         }
@@ -59,6 +64,7 @@ public class Hunter {
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
+                        Room.update();
                         System.out.println(Room.getnames());
                     }
                 } else {

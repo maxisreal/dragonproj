@@ -18,13 +18,13 @@ public class Dragon {
             if (hp<=0){
                 hp = 0;
                 isDead = true;
-                System.out.println("You beat the corpse of " + name + " pointlessly.");
+                System.out.println(Colors.GREEN + "You beat the corpse of " + name + " pointlessly.");
             } else {
                 System.out.println("You hit " + name + " for " + dmg + " health, pissing it off.");
             }
             return hp;
         } else {
-            System.out.println("You beat the corpse of " + name + " pointlessly.");
+            System.out.println(Colors.GREEN + "You beat the corpse of " + name + " pointlessly.");
             return hp;
         }
     }
