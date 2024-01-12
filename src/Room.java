@@ -55,7 +55,11 @@ public class Room {
     }
     public static int attack(int dmg){
         thedragon.recieve(dmg);
-        return thedragon.attack();
+        if (!thedragon.isDead()) {
+            return thedragon.attack();
+        } else {
+            thedragon.aftermath();
+        }
     }
     public static boolean findDragon(String dragon){
         for (Dragon drag : a){
