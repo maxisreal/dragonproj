@@ -50,12 +50,12 @@ public class Hunter {
                     if (choice.equals("s")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         String p = SCANNER.nextLine();
-                        if (Room.getnames().contains(p)) {
+                        if (Room.findDragon(p)) {
                             p1.takeDamage(Room.attack(p, sword.getatk()), sword.getdodge());
                         } else {
                             Room.attack(p, sword.getatk());
                         }
-                        while (!Room.getThedragon().isDead()) {
+                        while (!Room.getThedragon().isDead()&&!p1.isDead) {
                             onedragon();
                         }
                         Room.update();

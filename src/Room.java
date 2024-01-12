@@ -53,6 +53,14 @@ public class Room {
         }
         return 0;
     }
+    public static boolean findDragon(String dragon){
+        for (Dragon drag : a){
+            if (dragon.equalsIgnoreCase(drag.getName())){
+                return !drag.isDead();
+            }
+        }
+        return false;
+    }
     public static String dragonInfo(String dragon){
         dragon = dragon.toLowerCase();
         for (int i = 0; i<a.length; i++){
