@@ -21,7 +21,7 @@ public class Player {
                 System.out.println("What?");
             } else {
                 int random = (int) (Math.random() * 100 + 1);
-                if (random <= dodge) {
+                if (random <= dodge&&!isDead) {
                     System.out.println(Colors.CYAN + "You barely dodge " + dmg + " damage." + Colors.RESET);
                 } else {
                     System.out.println(Colors.RED + "You get whacked for " + dmg + " damage.");
