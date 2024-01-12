@@ -96,12 +96,18 @@ public class Room {
     }
     public static void update(){
         names = "";
-        for (Dragon dragon : a){
-            if (!dragon.isDead()){
-               names += dragon.getName() + ", ";
+        for (int i = 0; i<a.length; i++){
+            if (!a[i].isDead()){
+               names += a[i].getName() + ", ";
             }
         }
-        names = "Only " + names.substring(0) + " remain.";
+        if (dragonamt()==1){
+            names = Colors.GREEN + "Only " + names.substring(0, names.length() - 2) + " remains.";
+        } else if (dragonamt()==2) {
+            names = Colors.GREEN + "Only " + a[0].getName() + "and" + a[1].getName() + " remain.";
+        } else {
+            names = Colors.GREEN + "Only " + names + " remain.";
+        }
         //todo: names removes any dead dragons from itself
     }
 
