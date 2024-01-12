@@ -8,20 +8,24 @@ public class Player {
         isDead = false;
     }
     public void takeDamage(int dmg, int dodge) {
-        if (dmg == -1) {
-            System.out.println("You might want to move on.");
-        } else {
-            int random = (int) (Math.random() * 100 + 1);
-            if (random <= dodge) {
-                System.out.println(Colors.CYAN + "You barely dodge " + dmg + " damage." + Colors.RESET);
+        if (!isDead) {
+            if (dmg == -1) {
+                System.out.println("You might want to move on.");
+            } else if (dmg == 0) {
+                System.out.println("What?");
             } else {
-                System.out.println(Colors.RED + "You get whacked for " + dmg + " damage.");
-                hp -= dmg;
-                System.out.println("HP: " + hp + Colors.RESET);
-                if (hp<0){
-                    hp = 0;
-                    isDead = true;
-                    System.out.println("dead");
+                int random = (int) (Math.random() * 100 + 1);
+                if (random <= dodge) {
+                    System.out.println(Colors.CYAN + "You barely dodge " + dmg + " damage." + Colors.RESET);
+                } else {
+                    System.out.println(Colors.RED + "You get whacked for " + dmg + " damage.");
+                    hp -= dmg;
+                    if (hp < 0) {
+                        hp = 0;
+                        isDead = true;
+                        System.out.println("dead");
+                    }
+                    System.out.println("HP: " + hp + Colors.RESET);
                 }
             }
         }

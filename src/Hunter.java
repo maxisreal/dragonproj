@@ -54,16 +54,12 @@ public class Hunter {
                             onedragon();
                         }
                         Room.update();
-                        System.out.println(Room.getnames() + " are still there.");
+                        System.out.println(Room.getnames());
                     }
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
-                        while (!Room.getThedragon().isDead()){
-                            onedragon();
-                        }
-                        Room.update();
-                        System.out.println(Room.getnames() + " are still there.");
+                        System.out.println(Room.getnames());
                     }
                 } else {
                     onedragon();

@@ -19,7 +19,7 @@ public class Room {
             //while (!a[i].getName().equals(a[i-1].getName())){
                 //a[i] = new Dragon();
             //}
-            names += a[i].getName() + ", ";
+            names += a[i-1].getName() + ", ";
         }
 
         System.out.print(Colors.GREEN);
@@ -32,7 +32,7 @@ public class Room {
             System.out.println(random + " dragons appear behind you.");
             System.out.println("Their names are " + names + ".");
         } else {
-            names += a[random-1].getName();
+            names += a[0].getName();
             System.out.println("A dragon appears behind you.");
             System.out.println("Its name is " + names + ".");
         }
@@ -51,7 +51,7 @@ public class Room {
                 return a[i].attack();
             }
         }
-        return -1;
+        return 0;
     }
     public static String dragonInfo(String dragon){
         dragon = dragon.toLowerCase();
@@ -95,11 +95,13 @@ public class Room {
         return thedragon;
     }
     public static void update(){
+        names = "";
         for (Dragon dragon : a){
-            if (dragon.isDead()){
-               names = names.substring(0, names.indexOf(dragon.getName())) + names.substring(names.indexOf(dragon.getName())+dragon.getName().length()+1);
+            if (!dragon.isDead()){
+               names += dragon.getName() + ", ";
             }
         }
+        names = "Only " + names.substring(0) + " remain.";
         //todo: names removes any dead dragons from itself
     }
 

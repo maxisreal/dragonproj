@@ -4,7 +4,7 @@ public class Dragon {
     private int power;
     private int dmg;
     private String name;
-    private final String[] names = {"Claudia", "Clyde", "Stevie", "Steve", "Trelok", "Sayga", "Steven", "Bob", "Tira", "Joshua", "Chester", "Josh", "Eric"};
+    private final String[] names = {"Claudia", "Clyde", "Stevie", "Steve", "Trelok", "Sharon", "Steven", "Bob", "Tira", "Joshua", "Chester", "Josh", "Eric", "Rock", "Britney", "Kaizyle", "Nevaeh", "Phelony", "Abcde", "Moronica", "Scotthew"};
     public Dragon(){
         hp = 100;
         power = (int)(Math.random()*3+1);
