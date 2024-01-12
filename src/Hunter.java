@@ -64,8 +64,7 @@ public class Hunter {
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
-                        Room.update();
-                        System.out.println(Room.getnames());
+                        System.out.println(Room.getnames() + " wait for you to do something.");
                     }
                 } else {
                     onedragon();
