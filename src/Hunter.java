@@ -52,11 +52,11 @@ public class Hunter {
                         String p = SCANNER.nextLine();
                         if (Room.findDragon(p)) {
                             p1.takeDamage(Room.attack(p, sword.getatk()), sword.getdodge());
+                            while (!Room.getThedragon().isDead()&&!p1.isDead) {
+                                onedragon();
+                            }
                         } else {
-                            Room.attack(p, sword.getatk());
-                        }
-                        while (!Room.getThedragon().isDead()&&!p1.isDead) {
-                            onedragon();
+                            System.out.println("What?");
                         }
                         Room.update();
                         System.out.println(Room.getnames());
