@@ -110,13 +110,13 @@ public class Room {
     }
     public static void update(){
         String temp = names;
-        for (int i = 0; i<a.length; i++){
-            if (a[i].isDead()){
-                names = temp.substring(0, temp.indexOf(a[i].getName()));
-                if (temp.indexOf(a[i].getName()) + a[i].getName().length()+2<=temp.length()) {
-                    names += temp.substring(temp.indexOf(a[i].getName()) + a[i].getName().length() + 2);
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+                names = temp.substring(0, temp.indexOf(dragon.getName()));
+                if (temp.indexOf(dragon.getName()) + dragon.getName().length()+2<=temp.length()) {
+                    names += temp.substring(temp.indexOf(dragon.getName()) + dragon.getName().length() + 2);
                 } else {
-                    names += temp.substring(temp.indexOf(a[i].getName()) + a[i].getName().length());
+                    names += temp.substring(temp.indexOf(dragon.getName()) + dragon.getName().length());
                 }
                 if (names.contains(", , ")) {
                     names = names.substring(0, names.indexOf(", , ")) + names.substring(names.indexOf(", , ") + 2);
