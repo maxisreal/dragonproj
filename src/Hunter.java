@@ -76,25 +76,26 @@ public class Hunter {
         System.out.println(Colors.RED + "You're dead!");
         System.out.println(Colors.GREEN + "The old man was right, you do have a death wish.");
     }
-    private void onedragon(){
-        System.out.println(Colors.GREEN + "____________________________________");
-        System.out.println(Colors.RED + "(S)tab the dragon.");
-        System.out.println(Colors.BLUE+ "(L)ook around.");
-        System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
-        String choice = choose();
-        if (choice.equals("s")) {
-            p1.takeDamage(Room.attack(sword.getatk()), sword.getdodge());
+    private void onedragon() {
+            System.out.println(Colors.GREEN + "____________________________________");
+            System.out.println(Colors.RED + "(S)tab the dragon.");
+            System.out.println(Colors.BLUE + "(L)ook around.");
+            System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
+            String choice = choose();
+            if (choice.equals("s")) {
+                p1.takeDamage(Room.attack(sword.getatk()), sword.getdodge());
+            }
+            if (choice.equals("c")) {
+                System.out.println(Room.dragonInfo());
+            }
         }
-        if (choice.equals("c")) {
-            System.out.println(Room.dragonInfo());
+        private String choose() {
+            System.out.print(Colors.RESET + "Choose: ");
+            String choice = SCANNER.nextLine().toLowerCase();
+            if (choice.length() != 0) {
+                choice = choice.substring(0, 1);
+            }
+            return choice;
         }
-    }
-    private String choose(){
-        System.out.print(Colors.RESET + "Choose: ");
-        String choice = SCANNER.nextLine().toLowerCase();
-        if (choice.length() != 0) {
-            choice = choice.substring(0, 1);
-        }
-        return choice;
-    }
+
 }
