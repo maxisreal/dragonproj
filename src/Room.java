@@ -2,8 +2,10 @@ public class Room {
     private static Dragon[] a;
     private Room(){}
     private static Dragon thedragon;
+    private static Player player;
     private static String names;
-    public static void spawn(){
+    public static void spawn(Player p){
+        player = p;
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
         names = "";
@@ -37,18 +39,18 @@ public class Room {
             System.out.println("Its name is " + names + ".");
         }
     }
-    public static int attack(String dragon, int dmg){
-        dragon = dragon.toLowerCase();
-        for (int i = 0; i<a.length; i++){
-            if (a[i].isDead()){
-                a[i].aftermath();
+    public static int attack(String getdragon, int dmg){
+        getdragon = getdragon.toLowerCase();
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+                dragon.aftermath(player);
                 System.out.println("The dragon has been slayed.");
                 return -1;
             }
-            if (a[i].getName().toLowerCase().equals(dragon)){
-                thedragon = a[i];
-                a[i].recieve(dmg);
-                return a[i].attack();
+            if (dragon.getName().toLowerCase().equals(getdragon)){
+                thedragon = dragon;
+                dragon.recieve(dmg);
+                return dragon.attack();
             }
         }
         return 0;
@@ -58,7 +60,7 @@ public class Room {
         if (!thedragon.isDead()) {
             return thedragon.attack();
         } else {
-            thedragon.aftermath();
+            thedragon.aftermath(player);
             return -1;
         }
     }
@@ -107,19 +109,35 @@ public class Room {
         return thedragon;
     }
     public static void update(){
+        String temp = names;
         for (int i = 0; i<a.length; i++){
             if (a[i].isDead()){
-               names = names.substring(0, names.indexOf(a[i].getName()));
-               names += names.substring(names.indexOf(a[i].getName()) + a[i].getName().length());
-               //todo: FIX THIS
+                names = temp.substring(0, temp.indexOf(a[i].getName()));
+                if (temp.indexOf(a[i].getName()) + a[i].getName().length()+2<=temp.length()) {
+                    names += temp.substring(temp.indexOf(a[i].getName()) + a[i].getName().length() + 2);
+                }
+                if (names.contains(", , ")) {
+                    names = names.substring(0, names.indexOf(", , ")) + names.substring(names.indexOf(", , ") + 2);
+                }
+                //todo: FIX THIS
             }
         }
-        if (dragonamt()==1){
-            names = Colors.GREEN + "Only " + names.substring(0, names.length() - 2) + " remains.";
+        if (dragonamt()==1&&names.contains("and")){
+            names = names.substring(0, names.indexOf("and")) + names.substring(names.indexOf("and") + 3);
+            names = Colors.RED + "Only " + names + " remains.";
         } else if (dragonamt()==2) {
-            names = Colors.GREEN + "Only " + a[0].getName() + " and " + a[1].getName() + " remain.";
+            int c = 0;
+            int b = 1;
+            for (int i = 0; i<a.length; i++){
+                if (!a[i].isDead() && c == 0){
+                    c = i;
+                } else {
+                    b = i;
+                }
+            }
+            names = Colors.RED + "Only " + a[c].getName() + " and " + a[b].getName() + " remain.";
         } else {
-            names = Colors.GREEN + "Only " + names + " remain.";
+            names = Colors.RED + "Only " + names + " remain.";
         }
         //todo: names removes any dead dragons from itself
     }

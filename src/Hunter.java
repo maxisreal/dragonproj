@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Hunter {
     private static final Scanner SCANNER = new Scanner(System.in);
     private final Sword sword = new Sword();
-    Player p1 = new Player();
+    Player p1;
     public Hunter(){}
     public void start(){
         intro();
@@ -11,6 +11,7 @@ public class Hunter {
         }
     }
     private void intro(){
+        p1 = new Player();
         System.out.println("So, you're going to fight a dragon.");
         System.out.println(Colors.RED + "You must have a death wish.");
     }
@@ -39,7 +40,7 @@ public class Hunter {
 
     private void menu(){
         while (!p1.isDead) {
-            Room.spawn();
+            Room.spawn(p1);
             while (!Room.roomClear()) {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");

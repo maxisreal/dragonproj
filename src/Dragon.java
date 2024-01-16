@@ -4,6 +4,7 @@ public class Dragon {
     private int power;
     private int dmg;
     private String name;
+    private Player player;
     private final String[] names = {"Claudia", "Clyde", "Stevie", "Steve", "Trelok", "Sharon", "Steven", "Bob", "Tira", "Joshua", "Chester", "Josh", "Eric", "Rock", "Britney", "Kaizyle", "Nevaeh", "Phelony", "Abcde", "Moronica", "Scotthew"};
     public Dragon(){
         hp = 100;
@@ -29,7 +30,7 @@ public class Dragon {
         }
     }
     public int attack(){
-        if (!isDead){
+        if (!isDead||hp<=0){
             System.out.println(name + " swipes back at you.");
             return dmg;
         } else {
@@ -49,17 +50,19 @@ public class Dragon {
             return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n"+ Colors.RED + name + " has the vitality of a corpse." + Colors.RESET;
         }
     }
-    public void aftermath(){
-        double random = Math.random()+1;
+    public void aftermath(Player p1){
+        int random = (int)(Math.random()*4+1);
         System.out.print(Colors.GREEN);
-        if (random<0.25){
-            System.out.println("You get 50 gold");
-        } else if (random < 0.5){
-            System.out.println("You get a sword upgrade");
-        } else if (random < 0.75) {
-            System.out.println("You get nothing");
+        if (random==1){
+            System.out.println("You get 50 gold.");
+        } else if (random == 2){
+            System.out.println("You get a sword upgrade.");
+        } else if (random == 3) {
+            System.out.println("You get nothing.");
         } else {
-            System.out.println("You get 20 hp back");
+            System.out.println("You get 20 hp back.");
+            p1.setHp(p1.getHp() + 20);
+            System.out.println(Colors.RED + "HP: " + p1.getHp() + Colors.RESET);
         }
     }
 }

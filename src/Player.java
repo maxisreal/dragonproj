@@ -16,7 +16,7 @@ public class Player {
                 System.out.println("dead");
             }
             if (dmg == -1) {
-                System.out.println("You might want to move on.");
+                hp -= 1;
             } else if (dmg == 0) {
                 System.out.println("What?");
             } else {
@@ -29,6 +29,12 @@ public class Player {
                 }
             }
         }
+    }
+    public int getHp(){
+        return hp;
+    }
+    public void setHp(int hp){
+        this.hp = hp;
     }
 
 }
