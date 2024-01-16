@@ -16,7 +16,7 @@ public class Player {
                 System.out.println("dead");
             }
             if (dmg == -1) {
-                hp -= 1;
+                hp--;
             } else if (dmg == 0) {
                 System.out.println("What?");
             } else {
