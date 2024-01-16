@@ -31,7 +31,7 @@ public class Dragon {
         }
     }
     public int attack(){
-        if ((!isDead||hp<=0)&&!player.isDead){
+        if (!isDead||hp<=0){
             System.out.println(name + " swipes back at you.");
             return dmg;
         } else {
