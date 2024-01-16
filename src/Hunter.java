@@ -56,10 +56,10 @@ public class Hunter {
                             while (!Room.getThedragon().isDead()&&!p1.isDead) {
                                 onedragon();
                             }
+                            Room.update();
                         } else {
                             System.out.println("What?");
                         }
-                        Room.update();
                         System.out.println(Room.getnames());
                     }
                     if (choice.equals("c")) {
@@ -70,6 +70,9 @@ public class Hunter {
                 } else {
                     onedragon();
                 }
+                System.out.println(Colors.GREEN + "You kill everything in the room.");
+                System.out.print("Being the headstrong idiot you are, you immediately rush into ");
+                System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
             }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");

@@ -1,10 +1,13 @@
 public class Room {
     private static Dragon[] a;
     private Room(){}
+    private static int b;
     private static Dragon thedragon;
     private static Player player;
     private static String names;
+    private static String[] room = {"the lair", "the house", "the warehouse", "the castle"};
     public static void spawn(Player p){
+        b++;
         player = p;
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
@@ -142,6 +145,9 @@ public class Room {
             names = Colors.RED + "Only " + names + " remain.";
         }
         //todo: names removes any dead dragons from itself
+    }
+    public static String getRoomName(){
+        return room[b];
     }
 
 }
