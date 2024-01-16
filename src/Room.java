@@ -12,12 +12,12 @@ public class Room {
         int random = (int)(Math.random()*5+1);
         a = new Dragon[random];
         names = "";
-        a[0] = new Dragon();
+        a[0] = new Dragon(player);
         thedragon = a[0];
         for (int i = 1; i<random; i++){
-            a[i] = new Dragon();
+            a[i] = new Dragon(player);
             while (a[i].getName().equals(a[i-1].getName())){
-                a[i] = new Dragon();
+                a[i] = new Dragon(player);
             }
             // this code makes them all have the same name
             //todo: please implement a system where dragons with the same names all get hurt when you attack one
@@ -46,7 +46,7 @@ public class Room {
         getdragon = getdragon.toLowerCase();
         for (Dragon dragon : a){
             if (dragon.isDead()){
-                dragon.aftermath(player);
+                dragon.aftermath();
                 System.out.println("The dragon has been slayed.");
                 return -1;
             }
@@ -63,7 +63,7 @@ public class Room {
         if (!thedragon.isDead()) {
             return thedragon.attack();
         } else {
-            thedragon.aftermath(player);
+            thedragon.aftermath();
             return -1;
         }
     }
