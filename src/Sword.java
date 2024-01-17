@@ -9,5 +9,11 @@ public class Sword {
         return atkdmg;
     }
     public int getdodge(){return dodge;}
+    public void updateatk(int atk){
+        atkdmg = atk;
+    }
+    public void updatedodge(int dodge){
+        this.dodge = dodge;
+    }
 
 }
