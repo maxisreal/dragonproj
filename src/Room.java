@@ -6,7 +6,7 @@ public class Room {
     private static Player player;
     private static String names;
     private static boolean healthpot = false;
-    private static String[] room = {"the lair", "the house", "the warehouse", "the castle"};
+    private static String[] room = {"the lair", "the house", "the warehouse", "the castle", "the wall"};
     public static void spawn(Player p){
         b++;
         player = p;
