@@ -131,7 +131,7 @@ public class Room {
                 b++;
             }
         }
-        return a.length - b;
+        return a.length - 1 - b;
     }
     public static Dragon getThedragon(){
         return thedragon;
