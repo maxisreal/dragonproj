@@ -3,6 +3,7 @@ public class Hunter {
     private static final Scanner SCANNER = new Scanner(System.in);
     private final Sword sword = new Sword();
     private boolean lookaround;
+    private boolean havePot;
     Player p1 = new Player();
     public Hunter(){}
     public void start(){
@@ -15,6 +16,7 @@ public class Hunter {
         System.out.println("So, you're going to fight a dragon.");
         System.out.println(Colors.RED + "You must have a death wish.");
         lookaround = false;
+        havePot = false;
     }
     private boolean turnback(){
             System.out.println("____________________________________");
@@ -44,7 +46,6 @@ public class Hunter {
             Room.spawn(p1);
             lookaround = false;
             while (!Room.roomClear()&&!p1.isDead) {
-                boolean havePot = false;
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
                     System.out.println(Colors.RED + "(S)tab the dragons.");
@@ -98,15 +99,14 @@ public class Hunter {
         System.out.println(Colors.GREEN + "The old man was right, you do have a death wish.");
     }
     private void onedragon() {
-            boolean havePot = false;
             System.out.println(Colors.GREEN + "____________________________________");
             System.out.println(Colors.RED + "(S)tab the dragon.");
             if (!lookaround) {
                 System.out.println(Colors.BLUE + "(L)ook around.");
             }
-        if (havePot){
-            System.out.println(Colors.YELLOW + "(G)et some health back.");
-        }
+            if (havePot){
+                System.out.println(Colors.YELLOW + "(G)et some health back.");
+            }
             System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
             String choice = choose();
             if (choice.equals("s")) {
