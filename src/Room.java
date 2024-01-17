@@ -127,11 +127,11 @@ public class Room {
     public static int dragonamt(){
         int b = 0;
         for (Dragon dragon : a){
-            if (dragon.isDead()){
+            if (!dragon.isDead()){
                 b++;
             }
         }
-        return a.length - 1 - b;
+        return b;
     }
     public static Dragon getThedragon(){
         return thedragon;
