@@ -44,11 +44,15 @@ public class Hunter {
             Room.spawn(p1);
             lookaround = false;
             while (!Room.roomClear()&&!p1.isDead) {
+                boolean havePot = false;
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
                     System.out.println(Colors.RED + "(S)tab the dragons.");
                     if (!lookaround) {
                         System.out.println(Colors.BLUE + "(L)ook around.");
+                    }
+                    if (havePot){
+                        System.out.println(Colors.YELLOW + "(G)et some health back.");
                     }
                     System.out.println(Colors.PURPLE + "(C)heck out the dragons.");
                     String choice = choose();
@@ -72,8 +76,12 @@ public class Hunter {
                         System.out.println(Colors.YELLOW + Room.getnames() + " wait for you to attack." + Colors.GREEN);
                     }
                     if (choice.equals("l")&&!lookaround){
-                        Room.lookaround();
+                        havePot = Room.lookaround();
                         lookaround = true;
+                    }
+                    if (choice.equals("g")&&havePot){
+                        Room.heal(p1);
+                        havePot = false;
                     }
                 } else {
                     onedragon();
@@ -90,11 +98,15 @@ public class Hunter {
         System.out.println(Colors.GREEN + "The old man was right, you do have a death wish.");
     }
     private void onedragon() {
+            boolean havePot = false;
             System.out.println(Colors.GREEN + "____________________________________");
             System.out.println(Colors.RED + "(S)tab the dragon.");
             if (!lookaround) {
                 System.out.println(Colors.BLUE + "(L)ook around.");
             }
+        if (havePot){
+            System.out.println(Colors.YELLOW + "(G)et some health back.");
+        }
             System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
             String choice = choose();
             if (choice.equals("s")) {
@@ -104,8 +116,12 @@ public class Hunter {
                 System.out.println(Room.dragonInfo());
             }
             if (choice.equals("l")&&!lookaround){
-                Room.lookaround();
+                havePot = Room.lookaround();
                 lookaround = true;
+            }
+            if (choice.equals("g")&&havePot){
+                Room.heal(p1);
+                havePot = false;
             }
         }
     private String choose() {
