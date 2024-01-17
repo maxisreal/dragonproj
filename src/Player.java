@@ -6,7 +6,6 @@ public class Player {
         hp = 100;
         //hp be 100
         isDead = false;
-        healthpot = false;
     }
     public void takeDamage(int dmg, int dodge) {
         if (!isDead) {
