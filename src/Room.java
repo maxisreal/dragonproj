@@ -147,7 +147,7 @@ public class Room {
             names = names.substring(names.length()-2);
             names = Colors.RED + "Only " + names + " remains.";
         } else if (dragonamt()==2){
-            names = names.substring(names.length()-2);
+            names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",")+1);
             names += "and " + a[a.length-1].getName();
             names = Colors.RED + "Only " + names + " remain.";
         } else {
