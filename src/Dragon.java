@@ -46,7 +46,7 @@ public class Dragon {
     public boolean isDead(){return isDead;}
     public String dragonInfo(){
         if (!isDead){
-            return Colors.GREEN + name + " is rather large.\n" + name + "'s hobbies include:\n-Being pissy\n-Having a face only a mother could love\n-Burning\n-Reading\n-Burning again\n" + Colors.RED + name + "is level " + power + " and has " + hp + " health." + Colors.RESET;
+            return Colors.GREEN + name + " is rather large.\n" + name + "'s hobbies include:\n-Being pissy\n-Having a face only a mother could love\n-Burning\n-Reading\n-Burning again\n" + Colors.RED + name + " is level " + power + " and has " + hp + " health." + Colors.RESET;
         } else {
             return Colors.RED + name + " is rather dead.\n" + name + "'s hobbies include:\n-Being dead\n-Lying there\n-Attracting flies\n-Rotting\n-Attracting maggots\n"+ Colors.RED + name + " has the vitality of a corpse." + Colors.RESET;
         }
