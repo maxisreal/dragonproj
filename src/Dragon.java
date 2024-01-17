@@ -55,7 +55,7 @@ public class Dragon {
         int random = (int)(Math.random()*4+1);
         System.out.print(Colors.GREEN);
         if (random==1){
-            System.out.println("You get 50 gold.");
+            System.out.println(Colors.YELLOW + "You get 50 gold.");
         } else if (random == 2){
             System.out.println("You get a sword upgrade.");
         } else if (random == 3) {
