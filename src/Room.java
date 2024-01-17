@@ -46,12 +46,12 @@ public class Room {
     public static int attack(String getdragon, int dmg){
         getdragon = getdragon.toLowerCase();
         for (Dragon dragon : a){
-            if (dragon.isDead()){
-                dragon.aftermath();
-                System.out.println("The dragon has been slayed.");
-                return -1;
-            }
             if (dragon.getName().toLowerCase().equals(getdragon)){
+                if (dragon.isDead()){
+                    dragon.aftermath();
+                    System.out.println("The dragon has been slayed.");
+                    return -1;
+                }
                 thedragon = dragon;
                 dragon.recieve(dmg);
                 return dragon.attack();
