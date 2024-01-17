@@ -79,6 +79,7 @@ public class Hunter {
                     if (choice.equals("l")&&!lookaround){
                         havePot = Room.lookaround();
                         lookaround = true;
+                        System.out.println(Colors.YELLOW + Room.getnames() + " wait for you to attack." + Colors.GREEN);
                     }
                     if (choice.equals("g")&&havePot){
                         Room.heal(p1);
@@ -118,6 +119,7 @@ public class Hunter {
             if (choice.equals("l")&&!lookaround){
                 havePot = Room.lookaround();
                 lookaround = true;
+                System.out.println(Colors.YELLOW + Room.getnames() + " wait for you to attack." + Colors.GREEN);
             }
             if (choice.equals("g")&&havePot){
                 Room.heal(p1);
