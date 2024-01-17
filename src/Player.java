@@ -2,10 +2,12 @@ public class Player {
     private int hp;
     public static int topscore;
     public boolean isDead;
-    public Player(){
+    public Sword sword;
+    public Player(Sword sword){
         hp = 100;
         //hp be 100
         isDead = false;
+        this.sword = sword;
     }
     public void takeDamage(int dmg, int dodge) {
         if (!isDead) {
@@ -35,6 +37,9 @@ public class Player {
     }
     public void setHp(int hp){
         this.hp = hp;
+    }
+    public Sword getSword(){
+        return sword;
     }
 
 }

@@ -58,6 +58,11 @@ public class Dragon {
             System.out.println(Colors.YELLOW + "You get 50 gold.");
         } else if (random == 2){
             System.out.println("You get a sword upgrade.");
+            Sword sword = player.getSword();
+            sword.updateatk((int)(sword.getatk()*1.5));
+            sword.updatedodge(sword.getdodge()+3);
+            System.out.println(Colors.RED + "Your sword's attack went up by " + sword.getatk()/3 + "!");
+            System.out.println(Colors.CYAN + "Your sword's dodge went up by 3!");
         } else if (random == 3) {
             System.out.println("You get nothing.");
         } else {

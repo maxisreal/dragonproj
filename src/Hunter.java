@@ -4,7 +4,7 @@ public class Hunter {
     private final Sword sword = new Sword();
     private boolean lookaround;
     private boolean havePot;
-    Player p1 = new Player();
+    Player p1 = new Player(sword);
     public Hunter(){}
     public void start(){
         intro();
