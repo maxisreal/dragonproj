@@ -128,7 +128,7 @@ public class Room {
         //todo: names removes any dead dragons from itself
     }
     public static String getRoomName(){
-        return room[b];
+        return room[b-1];
     }
 
 }
