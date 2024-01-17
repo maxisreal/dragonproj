@@ -5,6 +5,7 @@ public class Room {
     private static Dragon thedragon;
     private static Player player;
     private static String names;
+    private static boolean healthpot = false;
     private static String[] room = {"the lair", "the house", "the warehouse", "the castle"};
     public static void spawn(Player p){
         b++;
@@ -98,6 +99,29 @@ public class Room {
             }
         }
         return b == a.length;
+    }
+    public static boolean lookaround(){
+        double random = Math.random()+1;
+        if (random<=0.4){
+            System.out.println(Colors.GREEN + "You found a health pot!");
+            if (!healthpot) {
+                System.out.println("Well, you're hanging onto that.");
+                healthpot = true;
+            } else {
+                System.out.println("Wait, you already have one. Nevermind.");
+            }
+        } else {
+            System.out.println(Colors.GREEN + "Over in the corner, you find a spider stuck in its web.");
+            System.out.println("The spider appears to have been trying to catch three flies at once,");
+            System.out.println("and got itself tangled helplessly as a result.");
+            System.out.println("This presents no irony to you in any way, shape or form.");
+            System.out.println("You don't find anything else.");
+        }
+        return healthpot;
+    }
+    public static void heal(Player player){
+        System.out.println(Colors.GREEN + "You greedily guzzle down your health pot.");
+        player.setHp(50+player.getHp());
     }
     public static int dragonamt(){
         int b = 0;

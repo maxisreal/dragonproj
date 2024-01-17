@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Hunter {
     private static final Scanner SCANNER = new Scanner(System.in);
     private final Sword sword = new Sword();
+    private boolean lookaround;
     Player p1 = new Player();
     public Hunter(){}
     public void start(){
@@ -13,6 +14,7 @@ public class Hunter {
     private void intro(){
         System.out.println("So, you're going to fight a dragon.");
         System.out.println(Colors.RED + "You must have a death wish.");
+        lookaround = false;
     }
     private boolean turnback(){
             System.out.println("____________________________________");
@@ -40,11 +42,14 @@ public class Hunter {
     private void menu(){
         while (!p1.isDead) {
             Room.spawn(p1);
+            lookaround = false;
             while (!Room.roomClear()&&!p1.isDead) {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
                     System.out.println(Colors.RED + "(S)tab the dragons.");
-                    System.out.println(Colors.BLUE + "(L)ook around.");
+                    if (!lookaround) {
+                        System.out.println(Colors.BLUE + "(L)ook around.");
+                    }
                     System.out.println(Colors.PURPLE + "(C)heck out the dragons.");
                     String choice = choose();
                     if (choice.equals("s")) {
@@ -66,8 +71,9 @@ public class Hunter {
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
                         System.out.println(Colors.GREEN + Room.getnames() + " wait for you to attack." + Colors.GREEN);
                     }
-                    if (choice.equals("l")){
-
+                    if (choice.equals("l")&&!lookaround){
+                        Room.lookaround();
+                        lookaround = true;
                     }
                 } else {
                     onedragon();
@@ -86,7 +92,9 @@ public class Hunter {
     private void onedragon() {
             System.out.println(Colors.GREEN + "____________________________________");
             System.out.println(Colors.RED + "(S)tab the dragon.");
-            System.out.println(Colors.BLUE + "(L)ook around.");
+            if (!lookaround) {
+                System.out.println(Colors.BLUE + "(L)ook around.");
+            }
             System.out.println(Colors.PURPLE + "(C)heck out the dragon.");
             String choice = choose();
             if (choice.equals("s")) {
@@ -94,6 +102,10 @@ public class Hunter {
             }
             if (choice.equals("c")) {
                 System.out.println(Room.dragonInfo());
+            }
+            if (choice.equals("l")&&!lookaround){
+                Room.lookaround();
+                lookaround = true;
             }
         }
     private String choose() {
