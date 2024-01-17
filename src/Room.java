@@ -105,23 +105,24 @@ public class Room {
         if (random<=0.4){
             System.out.println(Colors.GREEN + "You found a health pot!");
             if (!healthpot) {
-                System.out.println("Well, you're hanging onto that.");
+                System.out.println("Well, you're hanging onto that."+ Colors.RESET);
                 healthpot = true;
             } else {
-                System.out.println("Wait, you already have one. Nevermind.");
+                System.out.println("Wait, you already have one. Nevermind." + Colors.RESET);
             }
         } else {
             System.out.println(Colors.GREEN + "Over in the corner, you find a spider stuck in its web.");
             System.out.println("The spider appears to have been trying to catch three flies at once,");
             System.out.println("and got itself tangled helplessly as a result.");
             System.out.println("This presents no irony to you in any way, shape or form.");
-            System.out.println("You don't find anything else.");
+            System.out.println("You don't find anything else." + Colors.RESET);
         }
         return healthpot;
     }
     public static void heal(Player player){
         System.out.println(Colors.GREEN + "You greedily guzzle down your health pot.");
         player.setHp(50+player.getHp());
+        System.out.println(Colors.RED + "HP: " + player.getHp() + Colors.RESET);
     }
     public static int dragonamt(){
         int b = 0;
