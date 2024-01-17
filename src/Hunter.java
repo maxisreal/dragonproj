@@ -76,7 +76,7 @@ public class Hunter {
                     if (choice.equals("c")) {
                         System.out.print(Colors.RED + "Which dragon? " + Colors.RESET);
                         System.out.println(Room.dragonInfo(SCANNER.nextLine()));
-                        System.out.println(Colors.YELLOW + Room.getnames() + " wait for you to attack." + Colors.GREEN);
+                        System.out.println(Colors.YELLOW + Room.getnames() + Colors.GREEN);
                     }
                     if (choice.equals("l")&&!lookaround){
                         havePot = Room.lookaround();
