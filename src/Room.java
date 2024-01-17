@@ -112,36 +112,17 @@ public class Room {
         return thedragon;
     }
     public static void update(){
-        String temp = names;
-        for (Dragon dragon : a){
-            if (dragon.isDead()){
-                names = temp.substring(0, temp.indexOf(dragon.getName()));
-                if (temp.indexOf(dragon.getName()) + dragon.getName().length()+2<=temp.length()) {
-                    names += temp.substring(temp.indexOf(dragon.getName()) + dragon.getName().length() + 2);
-                } else {
-                    names += temp.substring(temp.indexOf(dragon.getName()) + dragon.getName().length());
-                }
-                if (names.contains(", , ")) {
-                    names = names.substring(0, names.indexOf(", , ")) + names.substring(names.indexOf(", , ") + 2);
-                }
-                //todo: FIX THIS
+        names = "";
+        for (int i = 1; i<a.length; i++){
+            if (!a[i-1].isDead()){
+                names += a[i-1].getName() + ", ";
             }
         }
-        if (dragonamt()==1&&names.contains("and")){
-            names = names.substring(0, names.indexOf("and")) + names.substring(names.indexOf("and") + 3);
+        if (dragonamt()==1){
+            names = names.substring(names.length()-2);
             names = Colors.RED + "Only " + names + " remains.";
-        } else if (dragonamt()==2) {
-            int c = 0;
-            int b = 1;
-            for (int i = 0; i<a.length; i++){
-                if (!a[i].isDead() && c == 0){
-                    c = i;
-                } else {
-                    b = i;
-                }
-            }
-            names = Colors.RED + "Only " + a[c].getName() + " and " + a[b].getName() + " remain.";
         } else {
+            names += "and " + a[a.length-1].getName();
             names = Colors.RED + "Only " + names + " remain.";
         }
         //todo: names removes any dead dragons from itself

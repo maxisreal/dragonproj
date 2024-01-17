@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Hunter {
     private static final Scanner SCANNER = new Scanner(System.in);
     private final Sword sword = new Sword();
-    Player p1;
+    Player p1 = new Player();
     public Hunter(){}
     public void start(){
         intro();
@@ -11,7 +11,6 @@ public class Hunter {
         }
     }
     private void intro(){
-        p1 = new Player();
         System.out.println("So, you're going to fight a dragon.");
         System.out.println(Colors.RED + "You must have a death wish.");
     }
@@ -41,7 +40,7 @@ public class Hunter {
     private void menu(){
         while (!p1.isDead) {
             Room.spawn(p1);
-            while (!Room.roomClear()) {
+            while (!Room.roomClear()&&!p1.isDead) {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
                     System.out.println(Colors.RED + "(S)tab the dragons.");
@@ -74,9 +73,11 @@ public class Hunter {
                     onedragon();
                 }
             }
-            System.out.println(Colors.GREEN + "You kill everything in the room.");
-            System.out.print("Being the headstrong idiot you are, you immediately rush into ");
-            System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
+            if (!p1.isDead) {
+                System.out.println(Colors.GREEN + "You kill everything in the room.");
+                System.out.print("Being the headstrong idiot you are, you immediately rush into ");
+                System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
+            }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
         System.out.println(Colors.RED + "You're dead!");
@@ -95,13 +96,13 @@ public class Hunter {
                 System.out.println(Room.dragonInfo());
             }
         }
-        private String choose() {
+    private String choose() {
             System.out.print(Colors.RESET + "Choose: ");
             String choice = SCANNER.nextLine().toLowerCase();
             if (choice.length() != 0) {
                 choice = choice.substring(0, 1);
             }
             return choice;
-        }
+    }
 
 }
