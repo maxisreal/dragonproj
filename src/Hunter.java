@@ -100,9 +100,10 @@ public class Hunter {
             }
             if (!p1.isDead) {
                 p1.updatedragons(a);
-                System.out.println(Colors.GREEN + "You kill everything in the room.");
+                System.out.println(Colors.GREEN + "Every dragon here is dead.");
                 System.out.print("Being the headstrong idiot you are, you immediately rush into ");
                 System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
+                System.out.println(Colors.RED + Room.getRoomName() + " rumbles..." + Colors.RESET);
             }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
