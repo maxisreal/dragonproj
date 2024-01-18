@@ -133,6 +133,15 @@ public class Room {
         }
         return b;
     }
+    public static int deaddragons(){
+        int b = 0;
+        for (Dragon dragon : a){
+            if (dragon.isDead()){
+                b++;
+            }
+        }
+        return b;
+    }
     public static Dragon getThedragon(){
         return thedragon;
     }

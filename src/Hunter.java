@@ -51,7 +51,6 @@ public class Hunter {
         while (!p1.isDead) {
             Room.spawn(p1);
             lookaround = false;
-            int a = Room.dragonamt();
             while (!Room.roomClear()&&!p1.isDead) {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
@@ -99,7 +98,7 @@ public class Hunter {
                 }
             }
             if (!p1.isDead) {
-                p1.updatedragons(a);
+                p1.updatedragons(Room.deaddragons());
                 System.out.println(Colors.GREEN + "Every dragon here is dead.");
                 System.out.print("Being the headstrong idiot you are, you immediately rush into ");
                 String room =  Room.getRoomName();
