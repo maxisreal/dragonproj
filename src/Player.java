@@ -5,6 +5,7 @@ public class Player {
     public Sword sword;
     public int score;
     private int gold;
+    private int damage;
     private int deaddragons;
     public Player(Sword sword){
         hp = 100;
@@ -13,10 +14,12 @@ public class Player {
         this.sword = sword;
         score = 0;
         deaddragons = 0;
+        damage = 0;
     }
     public void takeDamage(int dmg, int dodge) {
         if (!isDead) {
             hp -= dmg;
+            damage += dmg;
             if (hp < 0) {
                 hp = 0;
                 isDead = true;
@@ -50,6 +53,7 @@ public class Player {
         score += (sword.getdodge()-20)/3;
         score += deaddragons;
         score += gold;
+        score += damage;
         if (score > topscore){
             topscore = score;
         }
