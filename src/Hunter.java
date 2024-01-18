@@ -18,33 +18,40 @@ public class Hunter {
         lookaround = false;
         havePot = false;
     }
-    private boolean turnback(){
-            System.out.println("____________________________________");
-            System.out.println("(G)et going on your suicidal quest." + Colors.RESET);
-            System.out.println(Colors.CYAN + "(T)urn back and reconsider your life options." + Colors.RESET);
-            String choice = choose();
-            if (choice.equals("t")){
-                System.out.println("Good on ye.");
-                return false;
-            } else if (choice.equals("g")){
-                System.out.println("No. Why? WHY? Why won't you listen to-" + Colors.GREEN);
-                System.out.println("In the distance, you spot a cavern. It's derelict, looks abandoned,");
-                System.out.println("and is in no state to house a dragon.");
-                System.out.print("In the spirit of adventure, you boldly enter, ");
-                System.out.println("hoping to find some goodies.");
-                System.out.println("The cavern rumbles...");
-                return true;
-            } else {
-                System.out.println("You're speaking nonsense. You're in no state to do this.");
-                System.out.println(".......\n...I'm sending you home.");
-                return false;
-            }
+    private boolean turnback() {
+        System.out.println("____________________________________");
+        System.out.println("(G)et going on your suicidal quest." + Colors.RESET);
+        System.out.println(Colors.CYAN + "(T)urn back and reconsider your life options." + Colors.RESET);
+        if (p1.getTopscore() > 0) {
+            System.out.println(Colors.PURPLE + "(V)iew your top score." + Colors.RESET);
+        }
+        String choice = choose();
+        if (choice.equals("t")) {
+            System.out.println("Good on ye.");
+            return false;
+        } else if (choice.equals("g")) {
+            System.out.println("No. Why? WHY? Why won't you listen to-" + Colors.GREEN);
+            System.out.println("In the distance, you spot a cavern. It's derelict, looks abandoned,");
+            System.out.println("and is in no state to house a dragon.");
+            System.out.print("In the spirit of adventure, you boldly enter, ");
+            System.out.println("hoping to find some goodies.");
+            System.out.println("The cavern rumbles...");
+            return true;
+        } else if (choice.equals("v") && p1.getTopscore() > 0){
+            System.out.println(Colors.PURPLE + "It's " + p1.getTopscore() + Colors.RESET);
+            return false;
+        } else {
+            System.out.println("You're speaking nonsense. You're in no state to do this.");
+            System.out.println(".......\n...I'm sending you home.");
+            return false;
+        }
     }
 
     private void menu(){
         while (!p1.isDead) {
             Room.spawn(p1);
             lookaround = false;
+            int a = Room.dragonamt();
             while (!Room.roomClear()&&!p1.isDead) {
                 if (Room.dragonamt()>1) {
                     System.out.println(Colors.GREEN + "____________________________________");
@@ -92,6 +99,7 @@ public class Hunter {
                 }
             }
             if (!p1.isDead) {
+                p1.updatedragons(a);
                 System.out.println(Colors.GREEN + "You kill everything in the room.");
                 System.out.print("Being the headstrong idiot you are, you immediately rush into ");
                 System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
@@ -99,6 +107,7 @@ public class Hunter {
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
         System.out.print(Colors.RED + "You're dead! GAME OVER YEAH!");
+        p1.calculateScore();
     }
     private void onedragon() {
             System.out.println(Colors.GREEN + "____________________________________");

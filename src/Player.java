@@ -3,11 +3,16 @@ public class Player {
     public static int topscore;
     public boolean isDead;
     public Sword sword;
+    public int score;
+    private int gold;
+    private int deaddragons;
     public Player(Sword sword){
         hp = 100;
         //hp be 100
         isDead = false;
         this.sword = sword;
+        score = 0;
+        deaddragons = 0;
     }
     public void takeDamage(int dmg, int dodge) {
         if (!isDead) {
@@ -39,6 +44,29 @@ public class Player {
     }
     public Sword getSword(){
         return sword;
+    }
+    public void calculateScore() {
+        score += hp;
+        score += (sword.getdodge()-20)/3;
+        score += deaddragons;
+        score += gold;
+        if (score > topscore){
+            topscore = score;
+        }
+        System.out.println(Colors.GREEN + "Score: " + Colors.YELLOW + score);
+        System.out.println(Colors.PURPLE + "Top score: " + Colors.YELLOW + topscore + Colors.RESET);
+    }
+    public int getTopscore(){
+        return topscore;
+    }
+    public int getScore(){
+        return score;
+    }
+    public void updatedragons(int a){
+        deaddragons += a;
+    }
+    public void updategold(int a){
+        gold += a;
     }
 
 }

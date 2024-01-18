@@ -5,6 +5,7 @@ public class Room {
     private static Dragon thedragon;
     private static Player player;
     private static String names;
+    private static int deaddragons;
     private static boolean healthpot = false;
     private static String[] room = {"the lair", "the house", "the warehouse", "the castle", "the wall"};
     public static void spawn(Player p){
