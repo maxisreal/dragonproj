@@ -157,7 +157,7 @@ public class Room {
                 names = a[a.length-1].getName();
             }
             if (names.contains(", ")){
-                names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",") + 1);
+                names = names.substring(0, names.indexOf(", ")) + names.substring(names.indexOf(", ") + 2);
             }
             names = Colors.RED + "Only " + names + " remains.";
         } else if (dragonamt()==2){
