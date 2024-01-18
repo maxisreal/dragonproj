@@ -106,7 +106,7 @@ public class Hunter {
             }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
-        System.out.print(Colors.RED + "You're dead! GAME OVER YEAH!");
+        System.out.println(Colors.RED + "You're dead! GAME OVER YEAH!");
         p1.calculateScore();
     }
     private void onedragon() {

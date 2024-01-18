@@ -54,7 +54,7 @@ public class Player {
             topscore = score;
         }
         System.out.println(Colors.GREEN + "Score: " + Colors.YELLOW + score);
-        System.out.println(Colors.PURPLE + "Top score: " + Colors.YELLOW + topscore + Colors.RESET);
+        System.out.print(Colors.PURPLE + "Top score: " + Colors.YELLOW + topscore + Colors.RESET);
     }
     public int getTopscore(){
         return topscore;
