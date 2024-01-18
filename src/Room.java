@@ -52,7 +52,6 @@ public class Room {
                     System.out.println("The dragon has been slayed.");
                     return -1;
                 }
-                thedragon = dragon;
                 dragon.recieve(dmg);
                 return dragon.attack();
             }
@@ -71,6 +70,7 @@ public class Room {
     public static boolean findDragon(String dragon){
         for (Dragon drag : a){
             if (dragon.equalsIgnoreCase(drag.getName())){
+                thedragon = drag;
                 return !drag.isDead();
             }
         }
