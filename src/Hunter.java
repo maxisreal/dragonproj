@@ -94,6 +94,7 @@ public class Hunter {
                         havePot = false;
                     }
                 } else {
+                    Room.lastman();
                     onedragon();
                 }
             }
