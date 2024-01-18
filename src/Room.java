@@ -144,14 +144,23 @@ public class Room {
                 names += a[i-1].getName() + ", ";
             }
         }
+        System.out.println("names: " + names);
         if (dragonamt()==1){
-            if (names.contains(", ")) {
-                names = names.substring(names.length() - 2);
+            if (names.equals("")){
+                names = a[a.length-1].getName();
+            }
+            if (names.contains(", ")){
+                names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",") + 1);
             }
             names = Colors.RED + "Only " + names + " remains.";
         } else if (dragonamt()==2){
-            names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",")+1);
-            names += "and " + a[a.length-1].getName();
+            if (!a[a.length - 1].isDead()) {
+                names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",") + 1);
+                names += "and " + a[a.length - 1].getName();
+            } else {
+                names = names.substring(0, names.indexOf(",")) + "and" + names.substring(names.indexOf(",") + 1);
+                names = names.substring(0, names.indexOf(",")) + names.substring(names.indexOf(",") + 1);
+            }
             names = Colors.RED + "Only " + names + " remain.";
         } else {
             names += "and " + a[a.length-1].getName();
