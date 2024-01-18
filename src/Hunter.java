@@ -102,8 +102,10 @@ public class Hunter {
                 p1.updatedragons(a);
                 System.out.println(Colors.GREEN + "Every dragon here is dead.");
                 System.out.print("Being the headstrong idiot you are, you immediately rush into ");
-                System.out.println(Colors.RED + Room.getRoomName() + "." + Colors.RESET);
-                System.out.println(Colors.RED + Room.getRoomName() + " rumbles..." + Colors.RESET);
+                String room =  Room.getRoomName();
+                System.out.println(Colors.RED + room + "." + Colors.RESET);
+                room = room.substring(0,1).toUpperCase() + room.substring(1);
+                System.out.println(Colors.RED + room + " rumbles..." + Colors.RESET);
             }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");

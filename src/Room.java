@@ -6,7 +6,7 @@ public class Room {
     private static Player player;
     private static String names;
     private static boolean healthpot = false;
-    private static String[] room = {"The lair", "The house", "The warehouse", "The castle", "The wall"};
+    private static String[] room = {"the lair", "the house", "the warehouse", "the castle", "the wall"};
     public static void spawn(Player p){
         b++;
         player = p;
@@ -143,7 +143,6 @@ public class Room {
                 names += a[i-1].getName() + ", ";
             }
         }
-        System.out.println("names: " + names);
         if (dragonamt()==1){
             if (names.equals("")){
                 names = a[a.length-1].getName();
