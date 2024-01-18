@@ -76,6 +76,16 @@ public class Room {
         }
         return false;
     }
+    public static void lastman(){
+        if (dragonamt()==1){
+            for (Dragon dragon : a){
+                if (!dragon.isDead()){
+                    thedragon = dragon;
+                    break;
+                }
+            }
+        }
+    }
     public static String dragonInfo(String dragon){
         dragon = dragon.toLowerCase();
         for (int i = 0; i<a.length; i++){
