@@ -106,7 +106,7 @@ public class Hunter {
                         lookaround = true;
                         System.out.println(Colors.YELLOW + Room.getnames() + Colors.GREEN);
                     }
-                    if (choice.equals("g")&&havePot&&p1.getHp()<100){
+                    if (choice.equals("g")&&havePot){
                         Room.heal(p1);
                         havePot = false;
                     }
@@ -156,7 +156,7 @@ public class Hunter {
                 lookaround = true;
                 System.out.println(Colors.YELLOW + Room.getnames() + Colors.GREEN);
             }
-            if (choice.equals("g")&&havePot&&p1.getHp()<100){
+            if (choice.equals("g")&&havePot){
                 Room.heal(p1);
                 havePot = false;
             }

@@ -135,6 +135,9 @@ public class Room {
     public static void heal(Player player){
         System.out.println(Colors.GREEN + "You greedily guzzle down your health pot.");
         player.setHp(50+player.getHp());
+        if (player.getHp()>150){
+            player.setHp(150);
+        }
         System.out.println(Colors.RED + "HP: " + player.getHp() + Colors.RESET);
     }
     public static int dragonamt(){
