@@ -52,7 +52,7 @@ public class Hunter {
         }
     }
     private boolean replay(){
-        System.out.println(Colors.GREEN + "Play again? y/n: ");
+        System.out.print(Colors.GREEN + "Play again? y/n: ");
         String choice = SCANNER.nextLine().toLowerCase();
         if (choice.length() != 0) {
             choice = choice.substring(0, 1);
@@ -106,7 +106,7 @@ public class Hunter {
                         lookaround = true;
                         System.out.println(Colors.YELLOW + Room.getnames() + Colors.GREEN);
                     }
-                    if (choice.equals("g")&&havePot){
+                    if (choice.equals("g")&&havePot&&p1.getHp()<100){
                         Room.heal(p1);
                         havePot = false;
                     }
@@ -154,7 +154,7 @@ public class Hunter {
                 lookaround = true;
                 System.out.println(Colors.YELLOW + Room.getnames() + Colors.GREEN);
             }
-            if (choice.equals("g")&&havePot){
+            if (choice.equals("g")&&havePot&&p1.getHp()<100){
                 Room.heal(p1);
                 havePot = false;
             }
