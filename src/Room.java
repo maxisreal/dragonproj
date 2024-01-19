@@ -114,7 +114,7 @@ public class Room {
         return b == a.length;
     }
     public static boolean lookaround(){
-        double random = Math.random()+1;
+        double random = Math.random();
         if (random<=0.4){
             System.out.println(Colors.GREEN + "You found a health pot!");
             if (!healthpot) {
