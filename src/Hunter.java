@@ -160,12 +160,12 @@ public class Hunter {
             }
         }
     private String choose() {
-            System.out.print(Colors.RESET + "Choose: ");
-            String choice = SCANNER.nextLine().toLowerCase();
-            if (choice.length() != 0) {
-                choice = choice.substring(0, 1);
-            }
-            return choice;
+        System.out.print(Colors.RESET + "Choose: ");
+        String choice = SCANNER.nextLine().toLowerCase();
+        if (choice.length() != 0) {
+            choice = choice.substring(0, 1);
+        }
+        return choice;
     }
 
 }
