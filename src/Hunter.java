@@ -53,7 +53,10 @@ public class Hunter {
     }
     private boolean replay(){
         System.out.println(Colors.GREEN + "Play again? y/n: ");
-        String choice = choose();
+        String choice = SCANNER.nextLine().toLowerCase();
+        if (choice.length() != 0) {
+            choice = choice.substring(0, 1);
+        }
         if (choice.equals("y")){
             return true;
         } else {
