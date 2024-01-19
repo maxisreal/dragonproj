@@ -52,7 +52,7 @@ public class Hunter {
         }
     }
     private boolean replay(){
-        System.out.print(Colors.GREEN + "Play again? y/n: ");
+        System.out.print(Colors.GREEN + "Play again? y/n: " + Colors.RED);
         String choice = SCANNER.nextLine().toLowerCase();
         if (choice.length() != 0) {
             choice = choice.substring(0, 1);
