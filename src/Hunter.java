@@ -11,6 +11,11 @@ public class Hunter {
         if (turnback()) {
             menu();
         }
+        while (replay()){
+            if (turnback()) {
+                menu();
+            }
+        }
     }
     private void intro(){
         System.out.println("So, you're going to fight a dragon.");
@@ -43,6 +48,15 @@ public class Hunter {
         } else {
             System.out.println("You're speaking nonsense. You're in no state to do this.");
             System.out.println(".......\n...I'm sending you home.");
+            return false;
+        }
+    }
+    private boolean replay(){
+        System.out.println(Colors.GREEN + "Play again? y/n: ");
+        String choice = choose();
+        if (choice.equals("y")){
+            return true;
+        } else {
             return false;
         }
     }
