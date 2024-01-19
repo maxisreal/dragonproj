@@ -67,6 +67,9 @@ public class Room {
             return -1;
         }
     }
+    public static int roomsCleared(){
+        return b;
+    }
     public static boolean findDragon(String dragon){
         for (Dragon drag : a){
             if (dragon.equalsIgnoreCase(drag.getName())){

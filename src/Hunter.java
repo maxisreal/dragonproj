@@ -48,7 +48,7 @@ public class Hunter {
     }
 
     private void menu(){
-        while (!p1.isDead) {
+        while (!p1.isDead&&Room.roomsCleared()<5) {
             Room.spawn(p1);
             lookaround = false;
             while (!Room.roomClear()&&!p1.isDead) {
@@ -107,10 +107,13 @@ public class Hunter {
                 room = room.substring(0,1).toUpperCase() + room.substring(1);
                 System.out.println(Colors.RED + room + " rumbles..." + Colors.RESET);
             }
+            if (Room.roomsCleared()==5){
+                System.out.println(Colors.PURPLE + "you win congrats");
+                p1.calculateScore();
+            }
         }
         System.out.println(Colors.PURPLE + "The dragonslayer has become the dragonslayed.");
         System.out.println(Colors.RED + "You're dead! GAME OVER YEAH!");
-        p1.calculateScore();
     }
     private void onedragon() {
             System.out.println(Colors.GREEN + "____________________________________");
